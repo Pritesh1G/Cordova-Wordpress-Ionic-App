@@ -1,0 +1,40 @@
+<ion-view view-title="Posts">
+  <ion-content lazy-scroll>
+  <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+  
+	<!-- Template 'cards-background' -->
+	<div ng-if="posts" class="list card" ng-repeat="post in posts track by $index" ng-click="gotoPost(post.id)">
+	
+		<div ng-if="loadImages == false" class="item item-body item-{{color}} cards-template">
+			<div class="tint"></div>		
+			<span class="{{color}}-bg" ng-if="post.pure_taxonomies.categories[0].name" class="icon ion-stop {{color}}"><i class="icon ion-stop"></i>&nbsp{{post.pure_taxonomies.categories[0].name | uppercase}}</span>
+			<h2 ng-bind-html="post.title.rendered"></h2>
+			<h6 am-time-ago="post.date"></h6>
+		</div>
+		
+		<div ng-hide="loadImages == false" class="item item-body item-{{color}} cards-template" style="background-size: cover;" image-lazy-src="{{post.better_featured_image.media_details.sizes.medium.source_url}}" image-lazy-background-image="true" image-lazy-distance-from-bottom-to-load="-150">
+			<div class="tint"></div>
+			<span class="{{color}}-bg" ng-if="post.pure_taxonomies.categories[0].name" class="icon ion-stop {{color}}"><i class="icon ion-stop"></i>&nbsp{{post.pure_taxonomies.categories[0].name | uppercase}}</span>
+			<h2 ng-bind-html="post.title.rendered"></h2>
+			<h6 am-time-ago="post.date"></h6>
+
+		</div>
+		
+	</div>
+	
+  	<div ng-show="!posts" class="background-view">
+	  <div class="results">
+		<i class="icon ion-android-arrow-up"></i>
+		<h4 class="no-data">Data not loaded yet<br>Pull to refresh</h4>
+	  </div>
+	</div>
+	
+	<ion-infinite-scroll
+	ng-if="moreDataExists()"
+    on-infinite="loadMore()"
+    distance="1%"
+    immediate-check="false">
+  </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,44 @@
+<ion-view view-title="Post">
+    <ion-nav-buttons side="right">
+      <button class="button" style="border:none; background: none;" ng-click="addComment()">
+        <i class="icon ion-compose"></i>
+      </button>	
+      <button class="button" style="border:none; background: none;" ng-click="fontAdjust()">
+        <i class="icon" style="font-size: 18px;">Aa</i>
+      </button>
+      <button class="button" style="border:none; background: none;" ng-click="bookmarkItem(post.id)">
+        <i ng-class="{'icon ion-ios-bookmarks': bookmarked, 'icon ion-ios-bookmarks-outline': !bookmarked}"></i>
+      </button>
+      <button class="button" style="border:none; background: none;" on-touch="sharePost(post.link)">
+        <i class="icon ion-android-share-alt"></i>
+      </button>	  
+    </ion-nav-buttons>
+  <ion-content class="padding">
+
+	<ion-refresher on-refresh="doRefresh()"></ion-refresher>
+
+  	<div ng-if="post" class="card post">
+	  <div class="item post-title">
+		<h2 ng-bind-html="post.title.rendered"></h2>
+		<h6>Posted a <span am-time-ago="post.date"></span> in {{post.pure_taxonomies.categories[0].name}} {{comments.length}} Comments</h6>
+	  </div>
+	  
+	  <div class="item item-image">
+        <img ng-src="{{post.better_featured_image.media_details.sizes.medium.source_url}}" class="full-image" ng-click="showImage(post.better_featured_image.source_url)"/>
+      </div>
+	  
+	  <div class="item-body" ng-if="content"  ng-style="{'fontSize': vm.fontSize + 'px'}" ng-bind-html="content | html_filters"></div>
+    </div>
+	
+	<div ng-if="!post" class="background-view">
+	  <div class="results">
+		<i class="icon ion-android-arrow-up"></i>
+		<h4 class="no-data">Data not loaded yet<br>Pull to refresh</h4>
+	  </div>
+	</div>
+	<div class="padding-bottom">
+	<div class="item comment" ng-if="comments.length < 1">No Comments</div>
+	<div class="item comment" ng-repeat="comment in comments"><h5 class="{{color}}">{{comment.author_name}} <span am-time-ago="comment.date"></span></h5><div ng-bind-html="comment.content.rendered"></div></div>
+	</div>	
+  </ion-content>
+</ion-view>

@@ -1,0 +1,17 @@
+<ion-view view-title="Bookmarks">
+  <ion-content lazy-scroll>
+    <div ng-if="posts.length == 0" class="background-view">
+        <div class="results">
+          <i class="icon ion-ios-bookmarks"></i>
+          <h3 class="no-data">No bookmarks yet</h3>
+        </div>
+    </div>
+	<div class="card" ng-repeat="post in posts track by $index" ng-click="gotoPost(post.id)">
+	  <div class="item item-body list-template">
+	    <img src="{{post.better_featured_image.media_details.sizes.thumbnail.source_url}}">
+		<h4 ng-bind-html="post.title.rendered"></h4>
+		<h6>Posted a <span am-time-ago="post.date"></span> in {{post.pure_taxonomies.categories[0].name}}</h6>
+	  </div>
+	</div>
+  </ion-content>
+</ion-view>

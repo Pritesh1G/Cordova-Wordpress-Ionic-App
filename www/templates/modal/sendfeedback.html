@@ -1,0 +1,31 @@
+<ion-modal-view>
+	<ion-header-bar>
+		<h1 class="title">Send Feedback</h1>
+		<button class="button button-clear button-dark" ng-click="feedback_modal.hide()">
+		  <i class="icon ion-ios-close-empty"></i>
+		</button>
+	</ion-header-bar>
+	<ion-content>
+	<form name="emailForm" ng-controller="EmailCtrl" novalidate>	
+		<div class="list">
+		  <label class="item item-input item-floating-label">
+			<span class="input-label">Subject: </span>
+			<input type="text" name="subject" placeholder="Subject" ng-model="subject" ng-minlength="5" required>
+		  </label>
+		  <label class="item item-input item-floating-label">
+			<span class="input-label">Message: </span>
+			<textarea name="message" placeholder="Message" rows="8" cols="10" ng-model="message" ng-minlength="5" required></textarea>
+		  </label>
+		</div>
+        <div class="padding">
+            <p ng-show="emailForm.subject.$error.required">* Subject is required</p>
+            <p ng-show="emailForm.subject.$error.minlength">* Subject must be longer than 5 characters</p>			
+            <p ng-show="emailForm.message.$error.required">* Message is required</p>
+            <p ng-show="emailForm.message.$error.minlength">* Message must be longer than 5 characters</p>				
+        </div>		
+		<div class="padding">
+          <button class="button button-block button-{{color}}" ng-disabled="emailForm.$invalid" ng-click="sendFeedback()">Send</button>
+		</div>
+	</form>
+	</ion-content>
+</ion-modal-view>

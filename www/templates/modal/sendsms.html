@@ -1,0 +1,25 @@
+<ion-modal-view>
+	<ion-header-bar>
+		<h1 class="title">Send SMS</h1>
+		<button class="button button-clear button-dark" ng-click="sms_modal.hide()">
+		  <i class="icon ion-ios-close-empty"></i>
+		</button>
+	</ion-header-bar>
+	<ion-content>
+	<form name="smsForm" ng-controller="SmsCtrl" novalidate>
+		<div class="list">
+		  <label class="item item-input item-floating-label">
+			<span class="input-label">Message: </span>
+			<textarea placeholder="Message" name="message" rows="8" cols="10" ng-model="message" ng-minlength="5" ng-maxlength="160" required></textarea>
+		  </label>
+		</div>
+        <div class="padding">
+            <p ng-show="smsForm.message.$error.required">* Message is required</p>
+            <p ng-show="smsForm.message.$error.minlength || smsForm.message.$error.maxlength">* Message must be longer than 5 and shorter than 160 characters</p>
+        </div>	
+		<div class="padding">
+          <button class="button button-block button-{{color}}" ng-disabled="smsForm.$invalid" ng-click="sendSms()">Send</button>
+		</div>
+	</form>
+	</ion-content>
+</ion-modal-view>

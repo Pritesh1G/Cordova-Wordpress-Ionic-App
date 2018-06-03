@@ -1,0 +1,211 @@
+/* Empty. Add your own CSS if you like */
+
+.item  h2 {
+
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.item-image {
+    padding: 0;
+    text-align: center;
+    height: auto;
+	max-height: 180px;
+	min-height: 90px;
+}
+
+.item-content p.post-excerpt {
+	white-space: wrap;
+}
+
+.login-modal .close-button .icon::before {
+	font-size: 18px !important;
+}
+
+
+.slider {
+  height: 100%;
+}
+.slider-slide {
+  padding-top: 80px;
+  color: #000;
+  background: url('../img/blurry-app-bg.png') no-repeat center top;
+  background-size: cover;
+  text-align: center;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+}
+
+.slide-content {
+	position: absolute;
+	bottom: 200px;
+	width: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.slide-content h3 {
+	color: #fff;
+	margin-bottom: 40px;
+}
+
+/** Posts **/
+
+.post .item.post-title, .post .item.post-title h2 {
+	overflow: visible;
+	white-space: normal;
+	font-weight: bold;
+}
+.post .item-author {
+    border: none;
+}
+.post .wp-caption.aligncenter {
+    position: relative;
+    margin-bottom: 1.0em;
+    max-width: 100%;
+    overflow: hidden;
+}
+.post .wp-caption .wp-caption-text {
+    margin: 10px 0;
+    text-align: center;
+    font-style: italic;
+}
+.post ul,
+.post ol {
+    margin-top: 0;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+.post ul ul,
+.post ol ol {
+    margin-bottom: 0;
+}
+.post .item ul, .post .item ol {
+	color: #666;
+	font-size: 14px;
+}
+.post ol {
+    list-style: decimal;
+}
+.post ul {
+    list-style: disc;
+}
+.post em {
+    font-style: italic;
+}
+
+.post dl {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.post dt,
+.post dd {
+    line-height: 1;
+}
+.post dt {
+    font-weight: bold;
+}
+.post dd {
+    margin-left: 0;
+}
+.alignright {
+	float: right;
+	margin-left: 15px;
+}
+.alignleft {
+	float: left;
+	margin-right: 15px;
+}
+.post img {
+  max-width: 100%;
+  height: auto;
+}
+.post .item-body p a {
+  text-decoration: underline;
+}
+.background-view {
+  height: 100%;
+}
+.background-view .results {
+  height: 100%;
+  text-align: center; 
+}
+.background-view .results .icon {
+  font-size: 170px;
+  color: #efefef; 
+}
+.background-view .results .no-data{
+  color: #efefef;
+  font-size: 22px; 
+}
+
+.image-loader-container {
+  margin: 9px;
+  max-width: 80px;
+  max-height: 80px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.45);
+  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: center;
+}
+
+/* Templates */
+.tint {
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0.4;
+  background: rgb(174,188,191);
+  background: -moz-linear-gradient(top, rgba(174,188,191,1) 0%, rgba(110,119,116,1) 50%, rgba(10,14,10,1) 51%, rgba(10,8,9,1) 100%);
+  background: -webkit-linear-gradient(top, rgba(174,188,191,1) 0%,rgba(110,119,116,1) 50%,rgba(10,14,10,1) 51%,rgba(10,8,9,1) 100%);
+  background: linear-gradient(to bottom, rgba(174,188,191,1) 0%,rgba(110,119,116,1) 50%,rgba(10,14,10,1) 51%,rgba(10,8,9,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aebcbf', endColorstr='#0a0809',GradientType=0 );
+}
+
+.list-template img {
+  margin: -16px 10px -16px -24px;
+  float: left;
+  max-width: 92px;
+  height: 92px;
+}
+
+.list-template h4{
+  margin-top:-10px;
+}
+
+.cards-template {
+  min-height: 150px;
+}
+
+.cards-template span {
+  margin-left: -5px; 
+  font-size: 10px; 
+  color: white; 
+  padding: 0 5px 0 5px;
+}
+.cards-template h2, .cards-template h6 {
+  color: white; 
+  text-shadow: 0 1px 2px rgb(0, 0, 0);
+}
+.description p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Comments */
+.comment p {
+  white-space: normal;
+}

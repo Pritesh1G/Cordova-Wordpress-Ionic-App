@@ -1,0 +1,36 @@
+<ion-view>
+  <ion-nav-title>
+  Search: {{Request}}
+  </ion-nav-title>
+  <ion-content lazy-scroll>
+  
+  <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+
+  	<div ng-if="results" class="list card" ng-repeat="post in results track by $index" ng-click="gotoPost(post.id)">
+		<div ng-hide="loadImages == false" class="item item-image">
+			<img image-lazy-src="{{post.better_featured_image.media_details.sizes.medium.source_url}}"  image-lazy-distance-from-bottom-to-load="-100" image-lazy-loader="ios-small">
+		</div>
+		<div class="item item-body">
+			<h5 class="icon ion-stop {{color}}"> {{post.pure_taxonomies.categories[0].name | uppercase}}</h5>
+			<h2 ng-bind-html="post.title.rendered"></h2>
+			<span class="description" ng-bind-html="post.excerpt.rendered"></span>
+			<h6 am-time-ago="post.date"></h6>
+		</div>
+	</div>
+  
+  	<div ng-if="!results" class="background-view">
+	  <div class="results">
+		<i class="icon ion-android-arrow-up"></i>
+		<h4 class="no-data">Data not loaded yet<br>Pull to refresh</h4>
+	  </div>
+	</div>
+	
+	<ion-infinite-scroll
+	ng-if="moreDataExists()"
+    on-infinite="loadMore()"
+    distance="1%"
+    immediate-check="false">
+  </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>
