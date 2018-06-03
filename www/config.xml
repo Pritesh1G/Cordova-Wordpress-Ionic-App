@@ -28,7 +28,6 @@ Pritesh    </author>
  <plugin name="cordova-plugin-whitelist" spec="1" />
   <plugin name="cordova-plugin-x-toast" spec="2.5.2" />
   <plugin name="onesignal-cordova-plugin" spec="1.12.6" />
-  <plugin name="org.apache.cordova.console" spec="1.0.3" />
   <plugin name="org.apache.cordova.device" spec="1.1.2" />
   <plugin name="org.apache.cordova.inappbrowser" spec="1.4.0" />
   <plugin name="org.apache.cordova.splashscreen" spec="3.2.2" />
